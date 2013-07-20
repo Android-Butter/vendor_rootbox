@@ -1,0 +1,28 @@
+
+
+# Inherit GSM common stuff
+$(call inherit-product, vendor/rootbox/configs/gsm.mk)
+
+# Inherit RootBox common bits
+$(call inherit-product, vendor/rootbox/configs/common.mk)
+
+# Inherit device configuration
+$(call inherit-product, device/htc/pyramid/device_pyramid.mk)
+
+# PA OVERLAY_TARGET
+OVERLAY_TARGET := pa_hdpi
+
+# Device naming
+PRODUCT_DEVICE := pyramid
+PRODUCT_NAME := rootbox_pyramid
+PRODUCT_BRAND := htc
+PRODUCT_MODEL := HTC Sensation
+PRODUCT_MANUFACTURER := HTC
+
+# Set build fingerprint / ID / Product Name ect.
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=htc_pyramid BUILD_FINGERPRINT=tmous/htc_pyramid/pyramid:4.0.3/IML74K/356011.14:user/release-keys PRIVATE_BUILD_DESC="3.32.531.14 CL356011 release-keys" BUILD_NUMBER=356011
+PRODUCT_RELEASE_NAME := pyramid
+
+# Copy bootanimation.zip
+PRODUCT_COPY_FILES += \
+    vendor/rootbox/prebuilt/bootanimation/bootanimation_800_480.zip:system/media/bootanimation.zip
